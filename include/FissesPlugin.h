@@ -4,22 +4,21 @@ namespace FissesPlugin
 {
     using RE::BSFixedString;
     using RE::StaticFunctionTag;
-	BSFixedString	CFissBeginLoad(StaticFunctionTag *base, BSFixedString filename);
-	BSFixedString	CFissLoadString(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
-	bool			CFissLoadBool(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
-	float			CFissLoadFloat(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
-	int32_t 			CFissLoadInt(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
-	BSFixedString	CFissEndLoad(StaticFunctionTag *base, BSFixedString obj);
+    BSFixedString    CFissBeginLoad(StaticFunctionTag *base, std::string filename);
+    BSFixedString    CFissLoadString(StaticFunctionTag *base, std::string obj, std::string name);
+    bool             CFissLoadBool(StaticFunctionTag *base, std::string obj, std::string name);
+    float            CFissLoadFloat(StaticFunctionTag *base, std::string obj, std::string name);
+    int32_t          CFissLoadInt(StaticFunctionTag *base, std::string obj, std::string name);
+    BSFixedString    CFissEndLoad(StaticFunctionTag *base, std::string obj);
 
+    BSFixedString    CFissBeginSave(StaticFunctionTag *base, std::string filename, std::string modname);
+    void             CFissSaveBool(StaticFunctionTag *base, std::string obj, std::string name, bool value);
+    void             CFissSaveString(StaticFunctionTag *base, std::string obj, std::string name, std::string value);
+    void             CFissSaveFloat(StaticFunctionTag *base, std::string obj, std::string name, float value);
+    void             CFissSaveInt(StaticFunctionTag *base, std::string obj, std::string name, int32_t value);
+    BSFixedString    CFissEndSave(StaticFunctionTag *base, std::string obj);
+    BSFixedString    CFissSaveTextToTxtFile(StaticFunctionTag *base, std::string filename, std::string text);
 
-	BSFixedString	CFissBeginSave(StaticFunctionTag *base, BSFixedString filename, BSFixedString modname);
-	void			CFissSaveBool(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, bool value);
-	void			CFissSaveString(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, BSFixedString value);
-	void			CFissSaveFloat(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, float value);
-	void			CFissSaveInt(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, int32_t value);
-	BSFixedString	CFissEndSave(StaticFunctionTag *base, BSFixedString obj);
-	BSFixedString	CFissSaveTextToTxtFile(StaticFunctionTag *base, BSFixedString filename, BSFixedString text);
-
-	
-	bool RegisterFuncs(RE::BSScript::IVirtualMachine *registry);
+    
+    bool RegisterFuncs(RE::BSScript::IVirtualMachine *registry);
 }
