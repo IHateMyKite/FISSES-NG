@@ -1,13 +1,14 @@
-
-#include "skse64/PapyrusNativeFunctions.h"
+#pragma once
 
 namespace FissesPlugin
 {
+    using RE::BSFixedString;
+    using RE::StaticFunctionTag;
 	BSFixedString	CFissBeginLoad(StaticFunctionTag *base, BSFixedString filename);
 	BSFixedString	CFissLoadString(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
 	bool			CFissLoadBool(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
 	float			CFissLoadFloat(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
-	SInt32 			CFissLoadInt(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
+	int32_t 			CFissLoadInt(StaticFunctionTag *base, BSFixedString obj, BSFixedString name);
 	BSFixedString	CFissEndLoad(StaticFunctionTag *base, BSFixedString obj);
 
 
@@ -15,10 +16,10 @@ namespace FissesPlugin
 	void			CFissSaveBool(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, bool value);
 	void			CFissSaveString(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, BSFixedString value);
 	void			CFissSaveFloat(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, float value);
-	void			CFissSaveInt(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, SInt32 value);
+	void			CFissSaveInt(StaticFunctionTag *base, BSFixedString obj, BSFixedString name, int32_t value);
 	BSFixedString	CFissEndSave(StaticFunctionTag *base, BSFixedString obj);
 	BSFixedString	CFissSaveTextToTxtFile(StaticFunctionTag *base, BSFixedString filename, BSFixedString text);
 
 	
-	bool RegisterFuncs(VMClassRegistry* registry);
+	bool RegisterFuncs(RE::BSScript::IVirtualMachine *registry);
 }
